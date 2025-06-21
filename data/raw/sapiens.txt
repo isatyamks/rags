@@ -1,10 +1,9 @@
 1 An Animal of No Significance 
 
 ABOUT 13.5 BILLION YEARS AGO, MATTER, energy, time and 
-space came into 
-
-being in what is known as the Big Bang. The story of these 
-fundamental features of our universe is called physics. 
+space came into being in what is known as the Big Bang. 
+The story of these fundamental features of our universe \
+is called physics. 
 
 About 300,000 years after their appearance, matter and 
 energy started to coalesce into complex structures, called 
