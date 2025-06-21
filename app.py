@@ -1,4 +1,4 @@
-from src.qa_pipeline import load_qa_pipeline
+from src.pipeline import pipeline
 from src.interface import launch_ui
 
 if __name__ == "__main__":
