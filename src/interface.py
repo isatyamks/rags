@@ -11,7 +11,7 @@ def launch_ui(qa_chain):
         fn=answer_question,
         inputs=gr.Textbox(label="Ask a question about the book"),
         outputs=gr.Textbox(label="Answer"),
-        title="📚 Chat with Your Book",
+        title="Rag based LLM",
         description="Powered by a local LLM and FAISS vector store"
     )
 
