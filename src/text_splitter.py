@@ -4,7 +4,7 @@ def split_text_into_chunks(text: str, chunk_size=1000, chunk_overlap=100) -> lis
     splitter = RecursiveCharacterTextSplitter(
     chunk_size=1000,
     chunk_overlap=200,
-    separators=["\n\n", "\n", ".", "!", "?", " "]
+    # separators=["\n\n", "\n", ".", "!", "?", " "]
 )
     return splitter.split_text(text)
 
