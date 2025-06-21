@@ -1,4 +1,4 @@
-from src.embedder import create_vector_store_from_text
+from src.embedder import vector
 
 if __name__ == "__main__":
     import argparse
@@ -9,4 +9,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    create_vector_store_from_text(file_path=args.file, save_path=args.output)
+    vector(file_path=args.file, save_path=args.output)
