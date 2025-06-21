@@ -6,7 +6,7 @@ from src.text_splitter import text_splitter
 
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
-def create_vector_store_from_text(file_path: str, save_path: str = "embeddings"):
+def vector(file_path: str, save_path: str = "embeddings"):
 
     with open(file_path, "r", encoding="utf-8") as f:
         text = f.read()
