@@ -14,8 +14,8 @@ def create_vector_store_from_text(file_path: str, save_path: str = "embeddings")
     chunks = split_text_into_chunks(text)
     print(f"Total chunks: {len(chunks)}")
     embeddings = HuggingFaceEmbeddings(model_name=MODEL_NAME)
-    example_vector = embeddings.embed_query("example")
-    print(f"Embedding dimension: {len(example_vector)}")
+    
+    
     vector_db = FAISS.from_texts(chunks, embedding=embeddings)
     os.makedirs(save_path, exist_ok=True)
     vector_db.save_local(save_path)
