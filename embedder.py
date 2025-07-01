@@ -8,4 +8,4 @@ if __name__ == "__main__":
     parser.add_argument("--output", default="embeddings", help="Path to save FAISS index")
     args = parser.parse_args()
 
-    vector(args.file, args.output)
+    vector(args.input, args.output)
