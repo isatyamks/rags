@@ -1,7 +1,7 @@
 from src.embedder import vector, vector_from_jsonl
 
 if __name__ == "__main__":
-    
+
     # import argparse
     
     # parser = argparse.ArgumentParser()
@@ -10,4 +10,4 @@ if __name__ == "__main__":
     # args = parser.parse_args()
 
     # vector(args.input, args.output)
-    vector_from_jsonl("finetune\\data\\corpus.jsonl", save_path="embeddings")
+    vector_from_jsonl("finetune\\data\\corpus4.jsonl", save_path="embeddings")

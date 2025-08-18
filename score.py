@@ -1,6 +1,6 @@
 import pandas as pd
 i = int(input("Enter eval number: "))
-csv_path = f"response_result/eval{i}.csv"
+csv_path = f"reports/eval{i}.csv"
 df = pd.read_csv(csv_path)
 
 if df['Correct'].dtype != bool:

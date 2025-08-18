@@ -1,8 +1,8 @@
 import pandas as pd
 import re
 from sentence_transformers import SentenceTransformer, util
-
-df = pd.read_csv("testing\\improve3.csv")
+i = int(input("improve number: "))
+df = pd.read_csv(f"reports\\improve{i}.csv")
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
@@ -18,7 +18,7 @@ df["Correct"] = df["Similarity"] >= threshold
 
 print(df.head())
 
-df.to_csv("response_result\\eval3.csv", index=False)
+df.to_csv(f"reports\\eval{i}.csv", index=False)
 
 
 
