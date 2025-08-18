@@ -1,6 +1,8 @@
 import os
 import argparse
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
 from langchain_community.vectorstores import FAISS
 from src.text_splitter import text_splitter
 
@@ -27,7 +29,7 @@ def vector(file_path: str, save_path: str = "embeddings"):
     print(f"Saved standalone index for '{file_path}' at: {file_only_path}/")
 
     if os.path.exists(os.path.join(save_path, "index.faiss")):
-        existing_store = FAISS.load_local(save_path, embeddings)
+        existing_store = FAISS.load_local(save_path, embeddings, allow_dangerous_deserialization=True)
         existing_store.add_texts(chunks)
     else:
         existing_store = file_only_db 
