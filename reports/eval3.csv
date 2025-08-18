@@ -1,0 +1,101 @@
+Question,ModelResult,ActualAnswer,Similarity,Correct
+What species does Sapiens focus on?,foragers,"Homo sapiens, our own species.",0.33899638056755066,True
+When did Homo sapiens first appear?,"16,000 years ago","Around 200,000 years ago in Africa.",0.6468160152435303,True
+What was the Cognitive Revolution?,"3 This, after all, was one of the main legacies of the Cognitive Revolution.","A time about 70,000 years ago when humans developed advanced language and imagination.",0.3247166872024536,True
+What helped humans cooperate in large groups?,"The ability to transmit larger quantities of groups, numbering up to 150 information about Sapiens social relationships individuals The ability to transmit information about things a. Cooperation between very that do not really exist, such as tribal spirits, large numbers of strangers","Shared myths, stories, and beliefs.",0.3221393823623657,True
+What did hunter-gatherers mostly eat?,fruits and mushrooms,"A mix of plants, fruits, and small animals.",0.5703716278076172,True
+Why did farming change human life?,(iii),It created food surplus but also harder work and social hierarchies.,0.01064295507967472,False
+What is the Agricultural Revolution?,the ability to keep more people alive under worse conditions,"The shift from foraging to farming, about 12,000 years ago.",0.11920711398124695,False
+What was one downside of agriculture?,(iii),People’s diets worsened and diseases spread in crowded villages.,-0.019609039649367332,False
+What role did religion play in history?,give superhuman legitimacy to these fragile structures,It united large groups of people under shared beliefs.,0.1667417287826538,False
+What started the Scientific Revolution?,"The Scienti c Revolution, which got under way only 500 years ago, may well end history and start something completely di erent","Around 500 years ago, when people began trusting observation and experiments over tradition.",0.4008216857910156,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,Because they are rooted in common myths that exist only in peoples collective imagination.,They allow strangers to trust each other.,0.2770896553993225,True
+What were the first cities built around?,a three-storey building was a skyscraper,Agriculture and trade.,0.08395662903785706,False
+What is money described as?,Money,A universal fiction that helps exchange value.,0.39073804020881653,True
+Why is money so successful?,It works by converting matter into mind.,Because everyone believes in its value.,0.15910178422927856,False
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,(iii),They allow strangers to trust each other.,0.09448811411857605,False
+What were the first cities built around?,a three-storey building was a skyscraper,Agriculture and trade.,0.08395662903785706,False
+What is money described as?,Money,A universal fiction that helps exchange value.,0.39073804020881653,True
+Why is money so successful?,It works by converting matter into mind.,Because everyone believes in its value.,0.15910176932811737,False
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,(iii),They allow strangers to trust each other.,0.09448811411857605,False
+What were the first cities built around?,iii.,Agriculture and trade.,0.22482925653457642,False
+What is money described as?,(iii),A universal fiction that helps exchange value.,0.09358527511358261,False
+Why is money so successful?,Because it works by converting matter into mind.,Because everyone believes in its value.,0.38068389892578125,True
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,(iii),They allow strangers to trust each other.,0.09448811411857605,False
+What were the first cities built around?,a three-storey building was a skyscraper,Agriculture and trade.,0.08395658433437347,False
+What is money described as?,Money,A universal fiction that helps exchange value.,0.39073804020881653,True
+Why is money so successful?,Because it works by converting matter into mind.,Because everyone believes in its value.,0.38068389892578125,True
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,(iii),They allow strangers to trust each other.,0.094488225877285,False
+What were the first cities built around?,a three-storey building was a skyscraper,Agriculture and trade.,0.08395662903785706,False
+What is money described as?,Money,A universal fiction that helps exchange value.,0.39073798060417175,True
+Why is money so successful?,(iii),Because everyone believes in its value.,-0.05226093530654907,False
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,(iii),They allow strangers to trust each other.,0.09448811411857605,False
+What were the first cities built around?,a three-storey building was a skyscraper,Agriculture and trade.,0.08395658433437347,False
+What is money described as?,(iii),A universal fiction that helps exchange value.,0.09358535706996918,False
+Why is money so successful?,Because it works by converting matter into mind.,Because everyone believes in its value.,0.38068389892578125,True
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,(iii),They allow strangers to trust each other.,0.094488225877285,False
+What were the first cities built around?,a three-storey building was a skyscraper,Agriculture and trade.,0.08395662903785706,False
+What is money described as?,Money,A universal fiction that helps exchange value.,0.39073804020881653,True
+Why is money so successful?,(iii),Because everyone believes in its value.,-0.05226093530654907,False
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,(iii),They allow strangers to trust each other.,0.09448811411857605,False
+What were the first cities built around?,a three-storey building was a skyscraper,Agriculture and trade.,0.08395662903785706,False
+What is money described as?,Money,A universal fiction that helps exchange value.,0.39073804020881653,True
+Why is money so successful?,It works by converting matter into mind.,Because everyone believes in its value.,0.15910176932811737,False
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
+What allowed humans to spread across the world?,The Agricultural Revolution,Their ability to adapt and cooperate.,0.13581791520118713,False
+What was the main lifestyle of humans before farming?,"A band of Homo sapiens gathering mushrooms and nuts and hunting deer and rabbit did not all of a sudden settle in a permanent village, ploughing elds, sowing wheat and carrying water from the river",Hunting and gathering.,0.4927781820297241,True
+Why are shared myths powerful?,(iii),They allow strangers to trust each other.,0.09448811411857605,False
+What were the first cities built around?,a three-storey building was a skyscraper,Agriculture and trade.,0.08395671844482422,False
+What is money described as?,Money,A universal fiction that helps exchange value.,0.39073804020881653,True
+Why is money so successful?,It works by converting matter into mind.,Because everyone believes in its value.,0.15910176932811737,False
+What is an empire?,An empire is a political order with two important characteristics,A political order that rules many peoples and cultures.,0.6156454682350159,True
+Why do empires last long?,They tend to leave behind rich and enduring legacies,"They spread culture, trade, and order.",0.3746316134929657,True
+What is nationalism?,The idea of belonging to a shared nation.,The idea of belonging to a shared nation.,1.0,True
+What was the impact of writing?,it has gradually changed the way humans think and view the world,It allowed large societies to manage records and laws.,0.2812442481517792,True
