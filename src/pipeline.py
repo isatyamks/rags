@@ -21,7 +21,7 @@ def pipelinefn():
     MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
     embedding = HuggingFaceEmbeddings(model_name=MODEL_NAME)
 
-    db = FAISS.load_local("embeddings2", embedding, allow_dangerous_deserialization=True)
+    db = FAISS.load_local("embeddings\\sapiens", embedding, allow_dangerous_deserialization=True)
 
     qa_chain = RetrievalQA.from_chain_type(
         llm=local_llm,

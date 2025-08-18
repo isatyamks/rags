@@ -7,3 +7,4 @@ PyPDF2
 gradio
 tqdm
 numpy
+langchain_community
