@@ -1,4 +1,4 @@
-Question,ModelResult,ActualAnswer
+Question,RAG,ActualAnswer
 What species does Sapiens focus on?,Homo sapiens,"Homo sapiens, our own species."
 When did Homo sapiens first appear?,About 2.5 million years ago,"Around 200,000 years ago in Africa."
 What was the Cognitive Revolution?,The Cognitive Revolution is accordingly the point when history declared its independence from biology,"A time about 70,000 years ago when humans developed advanced language and imagination."
