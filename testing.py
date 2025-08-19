@@ -1,18 +1,8 @@
-
-from src.evaluation import evaluate_and_save, report_eval
-import os
+from src.evaluation import evaluate_report
 
 def main():
-    
     improve_num = int(input("improve number: "))
-    eval_path = f"reports/eval{improve_num}.csv"
-    
-    if os.path.exists(eval_path):
-        report_eval(improve_num)
-    
-    else:
-        evaluate_and_save(improve_num)
-        report_eval(improve_num)
+    evaluate_report(improve_num, save=True)  # handles both evaluate + report
 
 if __name__ == "__main__":
     main()
