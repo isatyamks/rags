@@ -1,40 +1,40 @@
-import os
-import argparse
-# from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_huggingface import HuggingFaceEmbeddings
 
+from generate_jsonl import generate_jsonl
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from src.text_splitter import text_splitter
+from pathlib import Path
+import os
+import json
+from datetime import datetime
 
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 embeddings = HuggingFaceEmbeddings(model_name=MODEL_NAME)
 
-# Load existing index if exists......
+def ensure_jsonl(input_path):
+    if input_path.endswith(".jsonl"):
+        return input_path
+    if input_path.endswith(".txt"):
+        dir_path = os.path.dirname(input_path)
+        base_name = os.path.splitext(os.path.basename(input_path))[0]
+        jsonl_path = os.path.join(dir_path, base_name + ".jsonl")
+        generate_jsonl(input_file=input_path, corpus_file=jsonl_path)
+        if not os.path.exists(jsonl_path):
+            raise RuntimeError(f"Failed to generate {jsonl_path} from {input_path}")
+        return jsonl_path
+    raise ValueError("Input file must be .jsonl or .txt")
 
 
-def vector(file_path: str, save_path: str = "embeddings"):
-    from pathlib import Path
-
-    with open(file_path, "r", encoding="utf-8") as f:
-        text = f.read()
-
-    chunks = text_splitter(text)
-    print(f"Total new chunks: {len(chunks)}")
-
-    file_only_db = FAISS.from_texts(chunks, embedding=embeddings)
-    file_name = Path(file_path).stem
-    file_only_path = os.path.join(save_path, file_name)
+def vector_from_jsonl(input_path, save_path="embeddings"):
+    jsonl_path = ensure_jsonl(input_path)
+    chunks = []
+    with open(jsonl_path, "r", encoding="utf-8") as f:
+        for line in f:
+            item = json.loads(line)
+            chunks.append(item["text"])
+    new_db = FAISS.from_texts(chunks, embedding=embeddings)
+    file_name = Path(jsonl_path).stem
+    dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    folder_name = f"{file_name}_{dt_str}"
+    file_only_path = os.path.join(save_path, folder_name)
     os.makedirs(file_only_path, exist_ok=True)
-    file_only_db.save_local(file_only_path)
-    print(f"Saved standalone index for '{file_path}' at: {file_only_path}/")
-
-    if os.path.exists(os.path.join(save_path, "index.faiss")):
-        existing_store = FAISS.load_local(save_path, embeddings, allow_dangerous_deserialization=True)
-        existing_store.add_texts(chunks)
-    else:
-        existing_store = file_only_db 
-
-    os.makedirs(save_path, exist_ok=True)
-    existing_store.save_local(save_path)
-    print(f"Updated FAISS index saved at: {save_path}/")
-    print(f"First chunk: {chunks[0][:100]}{'...' if len(chunks[0]) > 100 else ''}")
+    new_db.save_local(file_only_path)
