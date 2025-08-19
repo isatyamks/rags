@@ -5,7 +5,34 @@ import csv
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
-def improve(qa_chain, df, csv_path='reports/improve5.csv'):
+
+def terminalchat(qa_chain):
+
+    import re
+    while True:
+        query = input("\n---->\n")
+        if query.strip().lower() == 'exit':
+            break
+        result = qa_chain.invoke(query)
+        if isinstance(result, dict) and 'result' in result:
+            answer = result['result']
+        else:
+            answer = str(result)
+        match = re.search(r"Helpful Answer:(.*)", answer, re.DOTALL)
+        if match:
+            answer = match.group(1).strip()
+        match2 = re.search(r"Answer:(.*)", answer, re.DOTALL)
+        if match2:
+            answer = match2.group(1).strip()
+        answer = answer.split('\n')[0].strip()
+        if not answer:
+            answer = result['result'] if isinstance(result, dict) and 'result' in result else str(result)
+        print(f"\n-->{answer}")
+    
+
+
+
+def improve(qa_chain, df, csv_path='reports/improve8.csv'):
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
     questions = df["Question"].tolist()
     answers = df['Answer'].tolist()
