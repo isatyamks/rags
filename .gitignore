@@ -35,3 +35,7 @@ Thumbs.db
 *~
 /mlruns
 /wandb
+/models
+/results
+/finetune
+/embeddings
