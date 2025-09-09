@@ -8,3 +8,6 @@ gradio
 tqdm
 numpy
 langchain_community
+
+
+
