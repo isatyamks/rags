@@ -18,8 +18,8 @@ def analyze_faiss_index(index_path: str):
 
     ntotal = index.ntotal
     dim = index.d
-    faiss_size = os.path.getsize(index_file) / 1024
-    pkl_size = os.path.getsize(pkl_file) / 1024
+    faiss_size = os.path.getsize(index_file) / 2048
+    pkl_size = os.path.getsize(pkl_file) / 2048
     num_docs = len(docstore._dict)
 
     print(f"Folder: {index_path}")
@@ -35,3 +35,7 @@ def analyze_faiss_index(index_path: str):
         print(f"→ {sample.page_content[:300]}{'...' if len(sample.page_content) > 300 else ''}")
     except Exception as e:
         print("Could not load preview:", e)
+
+
+def report_analysis (index_path: str ):
+    

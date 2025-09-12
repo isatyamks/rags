@@ -1,3 +1,4 @@
+from colorama import Fore, Style
 
 import os
 import csv
@@ -36,7 +37,7 @@ def improve(qa_chain, df, csv_path='reports/improve8.csv'):
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
     questions = df["Question"].tolist()
     answers = df['Answer'].tolist()
-
+    
     fieldnames = ['Question', 'RAG', 'ActualAnswer']
 
     with open(csv_path, 'w', newline='', encoding='utf-8') as f:
@@ -44,7 +45,7 @@ def improve(qa_chain, df, csv_path='reports/improve8.csv'):
         writer.writeheader()
         for i in range(len(questions)):
             query = questions[i]
-            print(query)
+            print(f"{Fore.RED}{query}{Style.RESET_ALL}")
 
 
             result = qa_chain.invoke(query)
@@ -63,7 +64,7 @@ def improve(qa_chain, df, csv_path='reports/improve8.csv'):
                 answer = match2.group(1).strip()
             answer = answer.split('\n')[0].strip()
 
-            print(answer)
+            print(f"{Fore.GREEN}{answer}{Style.RESET_ALL}")
 
             actual_answer = answers[i] if i < len(answers) else ''
             writer.writerow({

@@ -25,10 +25,9 @@ def generate_jsonl(input_file, corpus_file, chunk_size=300):
     with open(corpus_file, "w", encoding="utf-8") as f:
         for item in corpus:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
-    print(f"Created {os.path.basename(corpus_file)} with {len(corpus)} chunks.")
+    print(f"\033[92m\nCreated {os.path.basename(corpus_file)} with {len(corpus)} chunks.\n\033[0m")
 
 if __name__ == "__main__":
-    # Example usage for CLI/testing
     input_file = "..\\data\\sapiens.txt"
     corpus_file = "..\\data\\corpus.jsonl"
     generate_jsonl(input_file, corpus_file)
