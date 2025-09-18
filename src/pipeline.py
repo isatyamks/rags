@@ -13,8 +13,29 @@ def pipelinefn(embeddings_dir):
     else:
         model_name = "microsoft/phi-3-mini-4k-instruct"  # Phi-3-Mini instruct
     print("\033[92mModel selected:\033[0m", model_name)
+
+    from transformers import BitsAndBytesConfig
+    from peft import PeftModel
+
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name)
+    # Set pad_token to eos_token for Phi-3
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+
+    # 4-bit quantization config
+    bnb_config = BitsAndBytesConfig(load_in_4bit=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        quantization_config=bnb_config,
+        device_map="auto"
+    )
+
+    # Optionally load LoRA adapter if present
+    lora_adapter_path = os.path.join(finetuned_path, "lora_adapter")
+    if os.path.exists(lora_adapter_path):
+        print("\033[92mLoading LoRA adapter from:\033[0m", lora_adapter_path)
+        from peft import PeftModel
+        model = PeftModel.from_pretrained(model, lora_adapter_path)
 
     pipe = pipeline(
         "text-generation",
