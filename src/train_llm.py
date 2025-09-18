@@ -5,23 +5,39 @@ from peft import LoraConfig, get_peft_model, TaskType
 
 def finetune_model():
 
-    dataset = load_dataset("json", data_files="data/fine_tune_dataset2.jsonl")["train"]
-    model_name = "models/_model_20250819_234916"
-    print(model_name)
+    dataset = load_dataset("json", data_files="data/fine_tune_dataset2.jsonl")['train']
+    # Use Phi-3-Mini instruct as base model
+    model_name = "microsoft/phi-3-mini-4k-instruct"
+    print("Base model:", model_name)
+    from transformers import BitsAndBytesConfig
+    bnb_config = BitsAndBytesConfig(load_in_4bit=True)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name)
-    tokenizer.pad_token = tokenizer.eos_token
-    model = AutoModelForCausalLM.from_pretrained(model_name)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        quantization_config=bnb_config,
+        device_map="auto"
+    )
 
     def tokenize_fn(batch):
-        texts = [p + c for p, c in zip(batch["prompt"], batch["completion"])]
+        # For instruction tuning: expects 'instruction', 'input', 'output' fields
+        texts = [
+            f"Instruction: {ins}\nInput: {inp}\nOutput:" for ins, inp in zip(batch["instruction"], batch["input"])
+        ]
+        labels = batch["output"]
         tokens = tokenizer(
             texts,
             truncation=True,
             padding="max_length",
-            max_length=128
+            max_length=512
         )
-        tokens["labels"] = tokens["input_ids"].copy()
+        tokens["labels"] = tokenizer(
+            labels,
+            truncation=True,
+            padding="max_length",
+            max_length=512
+        )["input_ids"]
         return tokens
 
     tokenized_dataset = dataset.map(tokenize_fn, batched=True)
@@ -29,7 +45,7 @@ def finetune_model():
     lora_config = LoraConfig(
         r=8,
         lora_alpha=32,
-        target_modules=["c_attn"],  # GPT2
+        target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],  # Common for Phi-3
         lora_dropout=0.1,
         bias="none",
         task_type=TaskType.CAUSAL_LM
@@ -39,7 +55,10 @@ def finetune_model():
     training_args = TrainingArguments(
         output_dir="./results",
         num_train_epochs=3,
-        per_device_train_batch_size=2,
+        per_device_train_batch_size=1,
+        gradient_accumulation_steps=8,
+        learning_rate=2e-4,
+        fp16=True,
         logging_steps=50,
         save_steps=100,
         save_total_limit=2,
@@ -56,5 +75,6 @@ def finetune_model():
     dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     save_dir = os.path.join("models", f"_model_{dt_str}")
     os.makedirs(save_dir, exist_ok=True)
-    model.save_pretrained(save_dir)
+    # Save only LoRA adapter
+    model.save_pretrained(os.path.join(save_dir, "lora_adapter"))
     tokenizer.save_pretrained(save_dir)

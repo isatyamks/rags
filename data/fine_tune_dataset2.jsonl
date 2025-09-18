@@ -1,0 +1,13 @@
+[
+  {
+    "instruction": "Ask a question about the document.",
+    "input": "What is the main topic of the text?",
+    "output": "The main topic of the text is ..."
+  },
+  {
+    "instruction": "Summarize the following passage.",
+    "input": "Passage: It was the best of times, it was the worst of times...",
+    "output": "The passage describes a period of great contrasts."
+  }
+  // Add more examples in this format
+]
