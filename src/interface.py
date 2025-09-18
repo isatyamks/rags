@@ -33,7 +33,7 @@ def terminalchat(qa_chain):
 
 
 
-def improve(qa_chain, df, csv_path='reports/improve8.csv'):
+def improve(qa_chain, df, csv_path='reports/improve10.csv'):
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
     questions = df["Question"].tolist()
     answers = df['Answer'].tolist()
