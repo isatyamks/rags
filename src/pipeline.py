@@ -6,7 +6,7 @@ from langchain_huggingface import HuggingFaceEmbeddings, HuggingFacePipeline
 def pipelinefn(embeddings_dir):
     import os
     # Use fine-tuned model if available, else fallback
-    finetuned_path = "models\\_model_20250819_234916"
+    finetuned_path = "models\\_model_20250819_2349161"
     # Use fine-tuned Phi-3-Mini if available, else base instruct model
     if os.path.exists(finetuned_path):
         model_name = finetuned_path
@@ -51,6 +51,10 @@ def pipelinefn(embeddings_dir):
     embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
     embedding = HuggingFaceEmbeddings(model_name=embedding_model)
     embeddings_dir = f"embeddings\\{embeddings_dir}"
+
+    print(embeddings_dir)
+
+
 
     db = FAISS.load_local(embeddings_dir, embedding, allow_dangerous_deserialization=True)
     print("\n")

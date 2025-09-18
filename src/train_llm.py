@@ -10,7 +10,11 @@ def finetune_model():
     model_name = "microsoft/phi-3-mini-4k-instruct"
     print("Base model:", model_name)
     from transformers import BitsAndBytesConfig
-    bnb_config = BitsAndBytesConfig(load_in_4bit=True)
+    import torch
+    bnb_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_compute_dtype=torch.float16
+    )
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -78,3 +82,6 @@ def finetune_model():
     # Save only LoRA adapter
     model.save_pretrained(os.path.join(save_dir, "lora_adapter"))
     tokenizer.save_pretrained(save_dir)
+
+if __name__ == "__main__":
+    finetune_model()
