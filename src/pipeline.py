@@ -7,10 +7,11 @@ def pipelinefn(embeddings_dir):
     import os
     # Use fine-tuned model if available, else fallback
     finetuned_path = "models\\_model_20250819_234916"
+    # Use fine-tuned Phi-3-Mini if available, else base instruct model
     if os.path.exists(finetuned_path):
         model_name = finetuned_path
     else:
-        model_name = "gpt2-medium"  # or your base model
+        model_name = "microsoft/phi-3-mini-4k-instruct"  # Phi-3-Mini instruct
     print("\033[92mModel selected:\033[0m", model_name)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name)
