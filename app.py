@@ -25,7 +25,7 @@ if __name__ == "__main__":
     qa_chain = pipelinefn(embeddings_dir=folder_name)
     #for testing
     df = pd.read_csv("data\\questions\\sapiens_qa.csv")
-    # terminalchat(qa_chain)
-    improve(qa_chain,df)
+    terminalchat(qa_chain)
+    # improve(qa_chain,df)
 
 

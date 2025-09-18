@@ -36,7 +36,7 @@ def pipelinefn(embeddings_dir):
         lora_adapter_path = lora_dirs[0]
         print("\033[92mLoading LoRA adapter from:\033[0m", lora_adapter_path)
         model = PeftModel.from_pretrained(model, lora_adapter_path)
-
+    print(lora_dirs)
     # Build standard HF text-generation pipeline
     pipe = pipeline(
         "text-generation",
