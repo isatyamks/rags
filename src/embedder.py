@@ -49,8 +49,11 @@ def ensure_jsonl(input_path):
     if input_path.endswith(".txt"):
         dir_path = os.path.dirname(input_path)
         base_name = os.path.splitext(os.path.basename(input_path))[0]
+        #json path builder
         jsonl_path = os.path.join("data/books/jsonl",base_name + ".jsonl")
+        #defined above
         generate_jsonl(input_file=input_path, corpus_file=jsonl_path)
+       
         if not os.path.exists(jsonl_path):
             raise RuntimeError(f"Failed to generate {jsonl_path} from {input_path}")
         return jsonl_path
@@ -58,7 +61,7 @@ def ensure_jsonl(input_path):
 
 
 
-#akes a text or JSONL corpus, splits it into chunks, embeds those chunks, 
+#takes a text or JSONL corpus, splits it into chunks, embeds those chunks, 
 #and saves the resulting FAISS index"""
 
 def vector_from_jsonl(input_path, save_path="embeddings"):
@@ -68,6 +71,7 @@ def vector_from_jsonl(input_path, save_path="embeddings"):
         for line in f:
             item = json.loads(line)
             chunks.append(item["text"])
+
     new_db = FAISS.from_texts(chunks, embedding=embeddings)
     file_name = Path(jsonl_path).stem
     dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
