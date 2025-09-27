@@ -7,8 +7,39 @@ import os
 import json
 from datetime import datetime
 
+import re
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 embeddings = HuggingFaceEmbeddings(model_name=MODEL_NAME)
+
+
+
+# .txt to .jsonl converter
+def generate_jsonl(input_file, corpus_file, chunk_size=300):
+    os.makedirs(os.path.dirname(corpus_file) or '.', exist_ok=True)
+    with open(input_file, "r", encoding="utf-8") as f:
+        text = f.read()
+    sentences = re.split(r'(?<=[.\n])\s+', text.strip())
+    corpus = []
+    chunk = ""
+    chunk_id = 0
+    for sentence in sentences:
+        if len(chunk) + len(sentence) > chunk_size:
+            if chunk:
+                corpus.append({"id": chunk_id, "text": chunk.strip()})
+                chunk_id += 1
+            chunk = sentence
+        else:
+            chunk += " " + sentence
+    if chunk:
+        corpus.append({"id": chunk_id, "text": chunk.strip()})
+    with open(corpus_file, "w", encoding="utf-8") as f:
+        for item in corpus:
+            f.write(json.dumps(item, ensure_ascii=False) + "\n")
+    print(f"\033[92m\nCreated {os.path.basename(corpus_file)} with {len(corpus)} chunks at {os.path.dirname(corpus_file)+'/'+os.path.basename(corpus_file)}\n\033[0m")
+
+
+
+
 
 
 #checking the input is in json or not (if not it converts to jsonl)
@@ -27,8 +58,8 @@ def ensure_jsonl(input_path):
 
 
 
-"""takes a text or JSONL corpus, splits it into chunks, embeds those chunks, 
-and saves the resulting FAISS index"""
+#akes a text or JSONL corpus, splits it into chunks, embeds those chunks, 
+#and saves the resulting FAISS index"""
 
 def vector_from_jsonl(input_path, save_path="embeddings"):
     jsonl_path = ensure_jsonl(input_path)
@@ -44,5 +75,10 @@ def vector_from_jsonl(input_path, save_path="embeddings"):
     file_only_path = os.path.join(save_path, folder_name)
     os.makedirs(file_only_path, exist_ok=True)
     new_db.save_local(file_only_path)
+    print(f"\033[92m\nCreated at embeddings\{folder_name}\n\033[0m")
+
+
+
+
 
     

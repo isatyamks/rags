@@ -1,0 +1,4 @@
+Electricity is the flow of electric charge through a conductor, such as a wire. 
+It powers homes, industries, and devices. 
+The flow of electrons creates current, which can be measured in amperes. 
+Voltage is the potential difference that drives the current.
