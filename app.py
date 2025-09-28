@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # vector_from_jsonl(f"data/books/raw/{file_name}.txt", save_path="embeddings")
     # dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     # folder_name = f"{file_name}_{dt_str}"
-    folder_name = "..\\temp\\merged_2books"
+    folder_name = "merged_2books"
 
     qa_chain = pipelinefn(embeddings_dir=folder_name)
     #for testing
