@@ -81,9 +81,24 @@ def process_document(uploaded_file):
             vector_from_jsonl(file_path, save_path="embeddings")
             st.success("✅ Embeddings created successfully!")
         
+        # Find the created embeddings folder
+        embeddings_folders = []
+        if os.path.exists("embeddings"):
+            for item in os.listdir("embeddings"):
+                if os.path.isdir(os.path.join("embeddings", item)) and item.startswith(file_name):
+                    embeddings_folders.append(item)
+        
+        if not embeddings_folders:
+            st.error("❌ No embeddings folder found after creation!")
+            return False
+        
+        # Use the most recent folder (in case there are multiple)
+        latest_folder = max(embeddings_folders)
+        
         # Initialize QA system
         with st.spinner("🤖 Initializing chat system..."):
-            qa_chain = pipelinefn("embeddings")
+            # Pass just the folder name, not the full path
+            qa_chain = pipelinefn(latest_folder)
             st.session_state.qa_chain = qa_chain
             st.session_state.document_processed = True
             st.session_state.current_document = uploaded_file.name

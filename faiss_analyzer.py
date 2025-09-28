@@ -5,5 +5,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze FAISS index and metadata")
     parser.add_argument("--folder", type=str, required=True, help="Path to the folder containing index.faiss and index.pkl")
     args = parser.parse_args()
-
+    args.update(new_model)
     analyze_faiss_index(args.folder)
