@@ -8,6 +8,9 @@ gradio
 tqdm
 numpy
 langchain_community
+streamlit
+colorama
+pandas
 
 
 
