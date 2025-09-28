@@ -5,8 +5,22 @@
 ## Overview
 RAGS is a modular, production-ready pipeline for Retrieval-Augmented Generation (RAG) using Python, HuggingFace Transformers, FAISS, and PEFT (LoRA). It supports document embedding, retrieval, LLM fine-tuning, and automated evaluation, with a focus on clarity, reproducibility, and extensibility. The codebase is clean, minimal, and easy to extend.
 
----
+## 🚀 Quick Start with Streamlit UI
 
+**NEW**: We now have a comprehensive Streamlit web interface! 
+
+### Run the Web Interface
+```bash
+streamlit run streamlit_app.py
+```
+
+The Streamlit interface provides:
+- 📄 **Document Upload & Processing**: Easy drag-and-drop document processing
+- 💬 **Interactive Chat**: Real-time Q&A with your documents
+- 📊 **Evaluation Dashboard**: Upload Q&A datasets and get performance reports
+- 🔍 **System Analysis**: Monitor FAISS indexes and system health
+
+---
 
 ## Features
 - **Document Embedding:**
@@ -22,8 +36,10 @@ RAGS is a modular, production-ready pipeline for Retrieval-Augmented Generation 
 	- Results are written back to the same CSV for easy tracking.
 - **Interactive Chat:**
 	- Terminal chat interface for live Q&A with your RAG pipeline.
-- **CLI Entry Point:**
-	- All major tasks can be run from `app.py` or individual scripts.
+	- **NEW**: Web-based chat interface via Streamlit UI.
+- **Multiple Interfaces:**
+	- **Streamlit Web UI**: User-friendly web interface (recommended)
+	- **CLI Entry Point**: Command-line interface via `app.py` or individual scripts
 
 ---
 

@@ -35,7 +35,3 @@ def analyze_faiss_index(index_path: str):
         print(f"→ {sample.page_content[:300]}{'...' if len(sample.page_content) > 300 else ''}")
     except Exception as e:
         print("Could not load preview:", e)
-
-
-def report_analysis (index_path: str ):
-    
