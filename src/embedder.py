@@ -1,14 +1,15 @@
 
 from .generate_jsonl import generate_jsonl
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.vectorstores import FAISS
 from pathlib import Path
 import os
 import json
 from datetime import datetime
 
+# model to use for embeddings. We delay importing/constructing the
+# HuggingFaceEmbeddings object until it's actually needed so importing
+# this module doesn't trigger heavy imports (sentence-transformers/torch)
+# at module-import time.
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-embeddings = HuggingFaceEmbeddings(model_name=MODEL_NAME)
 
 
 #checking the input is in json or not (if not it converts to jsonl)
@@ -37,6 +38,14 @@ def vector_from_jsonl(input_path, save_path="embeddings"):
         for line in f:
             item = json.loads(line)
             chunks.append(item["text"])
+
+    # Import and construct embeddings here to avoid import-time failures
+    # when the module is imported but the user hasn't installed torch/
+    # sentence-transformers yet.
+    from langchain_huggingface import HuggingFaceEmbeddings
+    from langchain_community.vectorstores import FAISS
+
+    embeddings = HuggingFaceEmbeddings(model_name=MODEL_NAME)
     new_db = FAISS.from_texts(chunks, embedding=embeddings)
     file_name = Path(jsonl_path).stem
     dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
